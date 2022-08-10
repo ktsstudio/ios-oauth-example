@@ -1,0 +1,56 @@
+PODS:
+  - Alamofire (5.6.1)
+  - AppAuth (1.5.0):
+    - AppAuth/Core (= 1.5.0)
+    - AppAuth/ExternalUserAgent (= 1.5.0)
+  - AppAuth/Core (1.5.0)
+  - AppAuth/ExternalUserAgent (1.5.0):
+    - AppAuth/Core
+  - Moya (14.0.0):
+    - Moya/Core (= 14.0.0)
+  - Moya/Core (14.0.0):
+    - Alamofire (~> 5.0)
+  - Moya/RxSwift (14.0.0):
+    - Moya/Core
+    - RxSwift (~> 5.0)
+  - RxCocoa (5.1.3):
+    - RxRelay (~> 5)
+    - RxSwift (~> 5)
+  - RxRelay (5.1.3):
+    - RxSwift (~> 5)
+  - RxSwift (5.1.3)
+
+DEPENDENCIES:
+  - "AppAuth (from `git@github.com:elenakacharmina/AppAuth-iOS.git`)"
+  - Moya (~> 14.0)
+  - Moya/RxSwift (~> 14.0)
+  - RxCocoa
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - Moya
+    - RxCocoa
+    - RxRelay
+    - RxSwift
+
+EXTERNAL SOURCES:
+  AppAuth:
+    :git: "git@github.com:elenakacharmina/AppAuth-iOS.git"
+
+CHECKOUT OPTIONS:
+  AppAuth:
+    :commit: 4af8826445c09f1efe52db2ee9d5981eec956d6d
+    :git: "git@github.com:elenakacharmina/AppAuth-iOS.git"
+
+SPEC CHECKSUMS:
+  Alamofire: 87bd8c952f9a4454320fce00d9cc3de57bcadaf5
+  AppAuth: 80317d99ac7ff2801a2f18ff86b48cd315ed465d
+  Moya: 5b45dacb75adb009f97fde91c204c1e565d31916
+  RxCocoa: e2ed092d5432e4296aa818021d27de4090ac0354
+  RxRelay: 5a18c2eb2d68326ebaf0112f80d837ae41b92b97
+  RxSwift: 915abbdfb62214aa89ccd0b194d44fb478019b27
+
+PODFILE CHECKSUM: 0bde459a831efe407f5e52a3b2fce4d6305c12a7
+
+COCOAPODS: 1.11.3
