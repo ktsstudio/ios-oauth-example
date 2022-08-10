@@ -11,4 +11,4 @@
 
 Чтобы протестировать приложение:
 - [зарегистрируйте](https://docs.github.com/en/developers/apps/building-oauth-apps/creating-an-oauth-app) OAuth-приложение в github
-- заполните поля CLIENT_ID, CLIENT_SECRET, CALLBACK_URL внутри [AuthConfiguration](Data/OAuth/AuthConfiguration.swift) в соотвествии с параметрами зарегистрированного приложения
+- заполните поля CLIENT_ID, CLIENT_SECRET, CALLBACK_URL внутри [AuthConfiguration](https://github.com/elenakacharmina/ios-oauth-example/blob/01948e505e9ef1d7e986d62dac120db71330897f/ios-oauth-example/Data/OAuth/AuthConfiguration.swift#L6) в соотвествии с параметрами зарегистрированного приложения
