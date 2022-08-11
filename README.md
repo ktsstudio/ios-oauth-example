@@ -1,6 +1,6 @@
 # iOS OAuth с помощью библиотеки AppAuth
 
-Разработан в качестве материала к статье: https://habr.com/ru/company/kts/blog/
+Разработан в качестве материала к статье: [https://habr.com/ru/company/kts/blog/681998/](https://habr.com/ru/company/kts/blog/681998/)
 
 Функционал:
 - логин
