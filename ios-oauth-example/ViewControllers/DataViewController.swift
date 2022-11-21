@@ -9,7 +9,7 @@ import UIKit
 import RxSwift
 
 final class DataViewController: UIViewController {
-    private let repository = DataRepository()
+    private let repository: DataRepository
     private let disposeBag = DisposeBag()
     
     private lazy var dataLabel: UILabel = {
@@ -19,6 +19,18 @@ final class DataViewController: UIViewController {
         
         return outputLabel
     }()
+    
+    init(repository: DataRepository?) {
+        guard let repository = repository
+        else { fatalError("DataViewController init") }
+        
+        self.repository = repository
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("DataViewController has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

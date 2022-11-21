@@ -11,8 +11,18 @@ import Moya
 
 final class DataRepository {
     
-    private let userDefaultsHelper = UserDefaultsHelper()
-    private let provider: MoyaProvider<DataRouter> = MoyaProvider<DataRouter>()
+    private let userDefaultsHelper: UserDefaultsHelper
+    private let provider: MoyaProvider<DataRouter>
+    
+    init(userDefaultsHelper: UserDefaultsHelper?,
+         provider: MoyaProvider<DataRouter>?) {
+        guard let userDefaultsHelper = userDefaultsHelper,
+              let provider = provider
+        else { fatalError("DataRepository init") }
+        
+        self.userDefaultsHelper = userDefaultsHelper
+        self.provider = provider
+    }
     
     func getUserData() -> Single<String> {
         return provider.rx

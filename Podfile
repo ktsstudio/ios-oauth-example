@@ -7,6 +7,7 @@ def base_pods
   pod 'Moya', '~> 14.0'
   pod 'Moya/RxSwift', '~> 14.0'
   pod 'RxCocoa'
+  pod 'Swinject'
 end
 
 target 'ios-oauth-example' do

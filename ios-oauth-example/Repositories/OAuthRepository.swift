@@ -9,7 +9,10 @@ import AppAuth
 
 class OAuthRepository {
     
-    private let userDefaultsHelper = UserDefaultsHelper()
+    private let userDefaultsHelper: UserDefaultsHelper
+    private let appDelegate: AppDelegate
+    
+    weak var viewController: UIViewController?
     
     private let configuration = OIDServiceConfiguration.init(
         authorizationEndpoint: URL(string: AuthConfiguration.baseUrl + AuthConfiguration.authUri)!,
@@ -18,7 +21,21 @@ class OAuthRepository {
         registrationEndpoint: nil,
         endSessionEndpoint: URL(string: AuthConfiguration.baseUrl + AuthConfiguration.endSessionUri)!)
     
-    func login(viewController: UIViewController) {
+    init(userDefaultsHelper: UserDefaultsHelper?,
+         appDelegate: AppDelegate?) {
+        guard let userDefaultsHelper = userDefaultsHelper,
+              let appDelegate = appDelegate
+        else { fatalError("OAuthRepository init") }
+        
+        self.userDefaultsHelper = userDefaultsHelper
+        self.appDelegate = appDelegate
+    }
+    
+    func login() {
+        guard let viewController = viewController else {
+            return
+        }
+        
         let request = OIDAuthorizationRequest(
             configuration: configuration,
             clientId: AuthConfiguration.clientId,
@@ -30,27 +47,24 @@ class OAuthRepository {
         
         let agent = OIDExternalUserAgentIOSSafariViewController(presentingViewController: viewController)
         
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        
         appDelegate.currentAuthorizationFlow = OIDAuthState.authState(byPresenting: request, externalUserAgent: agent) { [weak self] authState, error in
             if error == nil {
                 let tokenModel = TokenModel(access: authState?.lastTokenResponse?.accessToken,
-                                       refresh: authState?.lastTokenResponse?.refreshToken)
+                                            refresh: authState?.lastTokenResponse?.refreshToken)
                 self?.userDefaultsHelper.setToken(value: tokenModel)
             }
         }
     }
     
-    func logout(viewController: UIViewController) {
-        guard let accessToken = userDefaultsHelper.getToken()?.access else { return }
+    func logout() {
+        guard let accessToken = userDefaultsHelper.getToken()?.access,
+        let viewController = viewController else { return }
         let request =  OIDEndSessionRequest(configuration: configuration,
                                             idTokenHint: accessToken,
                                             postLogoutRedirectURL: URL(string: AuthConfiguration.logoutCallbackUrl)!,
                                             additionalParameters: nil)
         
         let agent = OIDExternalUserAgentIOSSafariViewController(presentingViewController: viewController)
-        
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
         
         appDelegate.currentAuthorizationFlow = OIDAuthorizationService.present(request, externalUserAgent: agent) { [weak self] (response, error) in
             self?.userDefaultsHelper.clearToken()
@@ -75,7 +89,7 @@ class OAuthRepository {
             
             if error == nil {
                 let tokenModel = TokenModel(access: tokenResponse?.accessToken,
-                                       refresh: tokenResponse?.refreshToken)
+                                            refresh: tokenResponse?.refreshToken)
                 self?.userDefaultsHelper.setToken(value: tokenModel)
             }
         }

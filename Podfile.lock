@@ -19,12 +19,14 @@ PODS:
   - RxRelay (5.1.3):
     - RxSwift (~> 5)
   - RxSwift (5.1.3)
+  - Swinject (2.8.2)
 
 DEPENDENCIES:
   - "AppAuth (from `git@github.com:elenakacharmina/AppAuth-iOS.git`)"
   - Moya (~> 14.0)
   - Moya/RxSwift (~> 14.0)
   - RxCocoa
+  - Swinject
 
 SPEC REPOS:
   trunk:
@@ -33,6 +35,7 @@ SPEC REPOS:
     - RxCocoa
     - RxRelay
     - RxSwift
+    - Swinject
 
 EXTERNAL SOURCES:
   AppAuth:
@@ -50,7 +53,8 @@ SPEC CHECKSUMS:
   RxCocoa: e2ed092d5432e4296aa818021d27de4090ac0354
   RxRelay: 5a18c2eb2d68326ebaf0112f80d837ae41b92b97
   RxSwift: 915abbdfb62214aa89ccd0b194d44fb478019b27
+  Swinject: b4a11b31992e8668308dc594ba1cb9b3164a37ab
 
-PODFILE CHECKSUM: 0bde459a831efe407f5e52a3b2fce4d6305c12a7
+PODFILE CHECKSUM: eb99be9c20b9574aa7a78befbd0e5a749fcddfb9
 
 COCOAPODS: 1.11.3

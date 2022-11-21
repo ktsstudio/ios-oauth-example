@@ -24,6 +24,9 @@
 		28D62C74288FC5D900CCCC57 /* GithubRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D62C73288FC5D900CCCC57 /* GithubRouter.swift */; };
 		28D62C77288FC62100CCCC57 /* DataRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D62C76288FC62100CCCC57 /* DataRouter.swift */; };
 		28D62C7C288FCB8000CCCC57 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D62C7B288FCB8000CCCC57 /* MainView.swift */; };
+		31A10F9C292A480B00A16040 /* SwinjectManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A10F9B292A480B00A16040 /* SwinjectManager.swift */; };
+		31A10F9E292A486200A16040 /* MainAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A10F9D292A486200A16040 /* MainAssembly.swift */; };
+		31A10FA0292B69E200A16040 /* DataAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A10F9F292B69E200A16040 /* DataAssembly.swift */; };
 		AE510406604DCB31E291E5E1 /* Pods_ios_oauth_example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DD65BD32795F5D0175603A6 /* Pods_ios_oauth_example.framework */; };
 /* End PBXBuildFile section */
 
@@ -49,6 +52,9 @@
 		28D62C76288FC62100CCCC57 /* DataRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataRouter.swift; sourceTree = "<group>"; };
 		28D62C7B288FCB8000CCCC57 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		2DD65BD32795F5D0175603A6 /* Pods_ios_oauth_example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ios_oauth_example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		31A10F9B292A480B00A16040 /* SwinjectManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwinjectManager.swift; sourceTree = "<group>"; };
+		31A10F9D292A486200A16040 /* MainAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainAssembly.swift; sourceTree = "<group>"; };
+		31A10F9F292B69E200A16040 /* DataAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataAssembly.swift; sourceTree = "<group>"; };
 		6992CB17691D5990E855D0E1 /* Pods-ios-oauth-example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ios-oauth-example.release.xcconfig"; path = "Target Support Files/Pods-ios-oauth-example/Pods-ios-oauth-example.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -87,6 +93,7 @@
 			children = (
 				28277CF128438EA300110C66 /* AppDelegate.swift */,
 				28277CF328438EA400110C66 /* SceneDelegate.swift */,
+				31A10F9A292A480300A16040 /* DI */,
 				28D62C65288E856B00CCCC57 /* ViewControllers */,
 				28D62C64288E854200CCCC57 /* Repositories */,
 				28D62C75288FC60A00CCCC57 /* Routers */,
@@ -161,6 +168,16 @@
 				28D62C5C288D24E200CCCC57 /* OIDExternalUserAgentIOSSafariViewController.swift */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		31A10F9A292A480300A16040 /* DI */ = {
+			isa = PBXGroup;
+			children = (
+				31A10F9B292A480B00A16040 /* SwinjectManager.swift */,
+				31A10F9D292A486200A16040 /* MainAssembly.swift */,
+				31A10F9F292B69E200A16040 /* DataAssembly.swift */,
+			);
+			path = DI;
 			sourceTree = "<group>";
 		};
 		5F20DBEBC5C93B0DF4658E97 /* Pods */ = {
@@ -297,8 +314,10 @@
 			files = (
 				28D62C63288E791F00CCCC57 /* UserDefaultsHelper.swift in Sources */,
 				28D62C7C288FCB8000CCCC57 /* MainView.swift in Sources */,
+				31A10F9E292A486200A16040 /* MainAssembly.swift in Sources */,
 				28D62C77288FC62100CCCC57 /* DataRouter.swift in Sources */,
 				28D62C74288FC5D900CCCC57 /* GithubRouter.swift in Sources */,
+				31A10FA0292B69E200A16040 /* DataAssembly.swift in Sources */,
 				28277D082843E3E600110C66 /* OAuthRepository.swift in Sources */,
 				28D62C61288E667D00CCCC57 /* DataRepository.swift in Sources */,
 				28D62C67288EE04800CCCC57 /* TokenModel.swift in Sources */,
@@ -306,6 +325,7 @@
 				28277D062843C91900110C66 /* AuthConfiguration.swift in Sources */,
 				28277CF628438EA400110C66 /* MainViewController.swift in Sources */,
 				28D62C5D288D24E200CCCC57 /* OIDExternalUserAgentIOSSafariViewController.swift in Sources */,
+				31A10F9C292A480B00A16040 /* SwinjectManager.swift in Sources */,
 				28277CF228438EA300110C66 /* AppDelegate.swift in Sources */,
 				28D62C69288EE0B800CCCC57 /* CustomError.swift in Sources */,
 				28277CF428438EA400110C66 /* SceneDelegate.swift in Sources */,

@@ -11,9 +11,21 @@ import RxSwift
 import RxCocoa
 
 final class MainViewController: UIViewController {
-    private let repository = OAuthRepository()
+    private let repository: OAuthRepository
     private let mainView = MainView()
     private let disposeBag = DisposeBag()
+    
+    init(repository: OAuthRepository?) {
+        guard let repository = repository
+        else { fatalError("MainViewController init") }
+        
+        self.repository = repository
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("MainViewController has not been implemented")
+    }
     
     override func loadView() {
         view = mainView
@@ -44,15 +56,17 @@ final class MainViewController: UIViewController {
     }
     
     private func login() {
-        repository.login(viewController: self)
+        repository.login()
     }
     
     private func logout() {
-        repository.logout(viewController: self)
+        repository.logout()
     }
     
     private func openData() {
-        let vc = DataViewController()
+        guard let vc = SwinjectManager.shared.dataVC else {
+            return
+        }
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
